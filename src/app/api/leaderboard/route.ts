@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import clientPromise from "@/app/lib/db";
+import { GetLeaderBoard } from "@/types/getLeaderBoard";
 
 export const POST = async () => {
       try {
