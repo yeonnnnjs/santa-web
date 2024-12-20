@@ -1,21 +1,21 @@
 import { NextResponse } from "next/server";
-import clientPromise from "@/app/lib/db";
-import { GetLeaderBoard } from "@/types/getLeaderBoard";
+import { LeaderBoard } from "@/types/leaderboard/type";
+import { getDocuments } from "@/app/util/db";
+
+const COLLECTION_NAME = "leaderboard";
 
 export const POST = async () => {
-      try {
-        const client = await clientPromise;
-        const db = client.db("santa-web");
-        const collection = db.collection("leaderboard");
+  try {
+    const data = await getDocuments(COLLECTION_NAME);
 
-        const data = await collection.find({}).toArray();
-        const response = data.map(({ _id, ...rest }) => rest);
-        return NextResponse.json(response, { status: 200 });
-      } catch (error) {
-        console.log(error);
-        return NextResponse.json(
-            { error: "Failed to read data" },
-            { status: 500 },
-        );
-      }
+    // @ts-ignore
+    const response = data ? data.map(({ _id, ...rest }) => rest) : [];
+
+    return NextResponse.json(response as LeaderBoard[], {
+      status: 200,
+    });
+  } catch (error) {
+    console.log(error);
+    return NextResponse.json({ error: "Failed to read data" }, { status: 500 });
+  }
 };
