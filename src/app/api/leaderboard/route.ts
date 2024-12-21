@@ -6,7 +6,12 @@ const COLLECTION_NAME = "leaderboard";
 
 export const POST = async () => {
   try {
-    const data = await getDocuments(COLLECTION_NAME);
+    const data = await getDocuments(
+      COLLECTION_NAME,
+      undefined,
+      {},
+      { lengthOfPrompt: 1 },
+    );
 
     // @ts-ignore
     const response = data ? data.map(({ _id, ...rest }) => rest) : [];

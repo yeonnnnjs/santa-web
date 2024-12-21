@@ -35,6 +35,7 @@ export const getDocuments = async (
   collectionName: string,
   id?: string,
   query: Record<string, unknown> = {},
+  sort?: Record<string, 1 | -1>,
 ) => {
   const collection = await getCollection(collectionName);
 
@@ -42,6 +43,9 @@ export const getDocuments = async (
     // @ts-ignore
     return await collection.findOne({ _id: id, ...query });
   } else {
-    return await collection.find(query).toArray();
+    return await collection
+      .find(query)
+      .sort(sort || {})
+      .toArray();
   }
 };

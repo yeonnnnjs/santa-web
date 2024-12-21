@@ -5,7 +5,6 @@ export type Message = {
   content: string;
   timestamp: Date;
   isSuccess: boolean;
-  lengthOfPrompt?: number;
 };
 
 export type CreateMessage = {

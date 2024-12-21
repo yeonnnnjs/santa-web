@@ -13,6 +13,7 @@ export const POST = async (req: NextRequest) => {
       return NextResponse.json(false, { status: 400 });
     }
     const timestamp = new Date();
+    const lengthOfPrompt = request.prompt.length;
 
     const santaUrl = process.env.AI_URL;
     if (!santaUrl) {
@@ -26,7 +27,7 @@ export const POST = async (req: NextRequest) => {
       },
       body: JSON.stringify(request),
     });
-    const { isSuccess, response, lengthOfPrompt } = await santa.json();
+    const { isSuccess, response } = await santa.json();
 
     const message: Message = {
       isSuccess,
@@ -40,14 +41,12 @@ export const POST = async (req: NextRequest) => {
       author: "SANTA",
       content: response,
       timestamp: new Date(),
-      lengthOfPrompt,
     };
 
     await addItemToList(request.name, JSON.stringify(message));
     await addItemToList(request.name, JSON.stringify(santaMessage));
 
     if (isSuccess) {
-      const rank = (await countDocuments(COLLECTION_NAME)) + 1;
       const isExist = await findOneDocument(COLLECTION_NAME, {
         name: request.name,
         gift: request.gift,
@@ -58,7 +57,6 @@ export const POST = async (req: NextRequest) => {
       }
 
       await insertDocument(COLLECTION_NAME, {
-        rank,
         timestamp,
         name: request.name,
         gift: request.gift,
