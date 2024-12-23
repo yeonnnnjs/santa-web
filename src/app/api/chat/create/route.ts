@@ -33,6 +33,7 @@ export const POST = async (req: NextRequest) => {
       isSuccess,
       author: "USER",
       content: request.prompt,
+      gift: request.gift,
       timestamp: timestamp,
     };
 
@@ -40,6 +41,7 @@ export const POST = async (req: NextRequest) => {
       isSuccess,
       author: "SANTA",
       content: response,
+      gift: request.gift,
       timestamp: new Date(),
     };
 

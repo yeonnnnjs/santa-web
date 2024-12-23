@@ -3,6 +3,7 @@ export type Author = "USER" | "SANTA";
 export type Message = {
   author: Author;
   content: string;
+  gift: string;
   timestamp: Date;
   isSuccess: boolean;
 };
