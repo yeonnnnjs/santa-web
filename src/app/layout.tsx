@@ -2,16 +2,27 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
+import { Top } from "@/app/components/Top";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const myFont = localFont({
+  src: [
+    {
+      path: "../../public/fonts/LINESeedKR-Rg.woff2",
+      weight: "400",
+      style: "regular",
+    },
+    {
+      path: "../../public/fonts/LINESeedKR-Bd.woff2",
+      weight: "700",
+      style: "bold",
+    },
+    {
+      path: "../../public/fonts/LINESeedKR-Th.woff2",
+      weight: "300",
+      style: "thin",
+    },
+  ],
+  variable: "--font-LINE",
 });
 
 export const metadata: Metadata = {
@@ -40,10 +51,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiasing`}
-      >
-        {children}
+      <body className={`bg-[#FBFFC9] ${myFont.variable} antialiasing`}>
+        <Top />
+        <div
+          className={
+            "relative flex h-screen w-full overflow-hidden p-10 pt-[148px]"
+          }
+        >
+          {children}
+        </div>
         <Analytics />
       </body>
     </html>

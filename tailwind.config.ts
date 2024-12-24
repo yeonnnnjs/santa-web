@@ -1,34 +1,13 @@
-const config: {
-  plugins: never[];
-  theme: {
-    extend: {
-      keyframes: {
-        rainbow: {
-          "100%": { backgroundPosition: string };
-          "0%": { backgroundPosition: string };
-        };
-      };
-      colors: { background: string; foreground: string };
-      animation: { rainbow: string };
-    };
-    screens: {
-      filter: string;
-      xl: string;
-      "2xl": string;
-      md: string;
-      sm: string;
-      xs: string;
-      lg: string;
-    };
-  };
-  content: string[];
-} = {
+const config = {
   content: [
     "./src/generator/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    fontFamily: {
+      line: ["var(--font-LINE)"],
+    },
     screens: {
       xs: "340px",
       sm: "480px",

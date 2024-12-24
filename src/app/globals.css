@@ -5,24 +5,35 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-LINE:"LINESeedKR", sans-serif;
 }
+
+html {
+  font-size: clamp(14px, 1vw, 16px);
+}
+
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #edededs;
   }
 }
+
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-LINE),Arial, Helvetica, sans-serif;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .bg-gradient-custom {
+    background: linear-gradient(to bottom, #FFC9C9 0%, #FFFFFF 11%);
   }
 }
 
@@ -36,3 +47,5 @@ body {
   scrollbar-width: none;
   -ms-overflow-style: none; /* IE and Edge */
 }
+
+
