@@ -39,7 +39,7 @@ export const Top = () => {
         </button>
       )}
       <Image
-        src={isLeaderboard ? "/leaderboard.png" : "/santa-tell.svg"}
+        src={isLeaderboard ? "/leaderboard.svg" : "/santa-tell.svg"}
         width={isOnlyLogo || isLeaderboard ? 562 : 272}
         height={isOnlyLogo || isLeaderboard ? 145 : 70}
         alt={"logo"}
