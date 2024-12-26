@@ -14,7 +14,7 @@ const config = {
       filter: "530px",
       md: "640px",
       lg: "768px",
-      xl: "1280px",
+      xl: "1100px",
       "2xl": "1536px",
     },
     extend: {

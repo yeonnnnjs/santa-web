@@ -35,20 +35,20 @@ export const Top = () => {
             src={"/back-arrow.png"}
             alt={"back-btn"}
           />
-          <div className={"text-2xl font-bold"}>뒤로가기</div>
+          <div className={"hidden text-3xl font-bold md:flex"}>뒤로가기</div>
         </button>
       )}
       <Image
         src={isLeaderboard ? "/leaderboard.svg" : "/santa-tell.svg"}
-        width={isOnlyLogo || isLeaderboard ? 562 : 272}
-        height={isOnlyLogo || isLeaderboard ? 145 : 70}
+        width={isOnlyLogo ? 562 : 272}
+        height={isOnlyLogo ? 145 : 70}
         alt={"logo"}
         className={
           "absolute left-1/2 top-[50px] -translate-x-1/2 transform px-4"
         }
       />
       {!isOnlyLogo && nickName && (
-        <p className={"font-regular my-auto align-middle text-2xl"}>
+        <p className={"font-regular my-auto align-middle text-xl"}>
           {nickName}
         </p>
       )}
