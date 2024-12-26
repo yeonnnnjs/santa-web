@@ -21,7 +21,7 @@ export const Top = () => {
   return (
     <div
       className={
-        "fixed left-0 top-0 z-10 flex h-[128.95px] w-full justify-between bg-[#FBFFC9] px-10 pb-4 pt-[50px]"
+        "fixed left-0 top-0 z-10 flex h-[90.95px] w-full justify-between bg-[#FBFFC9] p-4 md:h-[128.95px] md:px-10 md:pb-4 md:pt-[50px]"
       }
     >
       {!isOnlyLogo && (
@@ -44,7 +44,7 @@ export const Top = () => {
         height={isOnlyLogo ? 145 : 70}
         alt={"logo"}
         className={
-          "absolute left-1/2 top-[50px] -translate-x-1/2 transform px-4"
+          "absolute left-1/2 top-[14px] -translate-x-1/2 transform px-4 md:top-[50px]"
         }
       />
       {!isOnlyLogo && nickName && (

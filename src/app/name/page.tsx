@@ -31,7 +31,7 @@ const Name = () => {
     <div className={"relative m-auto w-full max-w-[1100px]"}>
       <div
         className={
-          "absolute -top-[120px] left-1/2 flex w-full -translate-x-1/2 transform flex-col items-center justify-center gap-[18px] text-3xl text-[#363636]"
+          "absolute -top-[100px] left-1/2 flex w-full -translate-x-1/2 transform flex-col items-center justify-center gap-[18px] text-xl text-[#363636] md:-top-[120px] md:text-3xl"
         }
       >
         <h1 className={"font-bold"}>산타와 대화하자</h1>
@@ -42,14 +42,14 @@ const Name = () => {
       <div className="flex w-full flex-col gap-4 md:flex-row">
         <input
           className={
-            "w-full rounded-[32px] border-[15px] border-[#363636] p-6 text-3xl shadow-stone-50 focus:outline-none"
+            "w-full rounded-[20px] border-[6px] border-[#363636] p-3 text-xl shadow-stone-50 focus:outline-none md:rounded-[32px] md:border-[15px] md:p-6 md:text-3xl"
           }
           onKeyDown={handleKeyDown}
           placeholder={"여기에 적어주세요."}
           onChange={(e) => setNickName(e.target.value)}
         />
         <button
-          className="whitespace-nowrap rounded-[32px] bg-[#363636] px-[50px] py-7 text-3xl font-bold text-white"
+          className="whitespace-nowrap rounded-[20px] bg-[#363636] p-3 text-xl font-bold text-white md:rounded-[32px] md:px-[50px] md:py-7 md:text-3xl"
           onClick={handleClick}
         >
           확인

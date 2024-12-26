@@ -55,7 +55,7 @@ export default function RootLayout({
         <Top />
         <div
           className={
-            "relative flex h-screen w-full overflow-hidden p-10 pt-[148px]"
+            "relative flex h-screen w-full overflow-hidden p-4 pt-[90.95px] md:pt-[148px]"
           }
         >
           {children}
